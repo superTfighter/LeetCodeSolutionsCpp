@@ -16,22 +16,20 @@ public:
     {
         ListNode *sum = new ListNode();
 
-        generateSumList(l1, l2, sum, nullptr, 0);
+        generateSumList(l1, l2, sum);
 
         return sum;
     }
 
-    void generateSumList(ListNode *l1, ListNode *l2, ListNode *sum, ListNode *previous, int carry)
+    void generateSumList(ListNode *l1, ListNode *l2, ListNode *sum, ListNode *previous = nullptr, int carry = 0)
     {
 
         if (l1 != nullptr || l2 != nullptr || carry != 0)
         {
 
-            int val1 = 0;
-            int val2 = 0;
-
-            ListNode *n1 = nullptr;
-            ListNode *n2 = nullptr;
+            // Default values
+            int val1 = 0;  ListNode *n1 = nullptr;
+            int val2 = 0;  ListNode *n2 = nullptr;
 
             if (l1 != nullptr)
             {
@@ -45,14 +43,13 @@ public:
                 n2 = l2->next;
             }
 
-            // do the sum accordingly
+            // do the sum 
             int summa = val1 + val2 + carry;
 
             int newVal = summa % 10;
             int c_ = summa / 10;
 
             sum->val = newVal;
-
             sum->next = new ListNode();
 
             this->generateSumList(n1, n2, sum->next, sum, c_);
