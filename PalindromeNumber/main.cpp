@@ -1,4 +1,6 @@
 #include "string"
+#include "iostream"
+#include <algorithm> 
 
 using namespace std;
 
@@ -32,7 +34,14 @@ int main()
     int input1 = 10001;
 
 
-    s.isPalindrome(input1);
+    bool solution = s.isPalindrome(input1);
+
+    if(solution)
+        cout << "True";
+    else
+        cout << "False";
+
+    
 
 
     return 0;
