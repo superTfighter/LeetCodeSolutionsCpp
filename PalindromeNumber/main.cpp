@@ -31,7 +31,7 @@ int main()
 {
     Solution s;
 
-    int input1 = 10001;
+    int input1 = 1101;
 
 
     bool solution = s.isPalindrome(input1);
